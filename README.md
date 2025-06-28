@@ -13,6 +13,8 @@ Tools and technologies used include:
 The goal is to simplify and standardize the process of spinning up VMs through
 automation, allowing fast and reproducible environments.
 
+[[_TOC_]]
+
 ## Purpose
 
 This project is driven by the need to build a personal virtual lab environment
