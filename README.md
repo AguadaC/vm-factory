@@ -21,3 +21,7 @@ This project is driven by the need to build a personal virtual lab environment
 for the deployment and testing of observability services. It serves as a
 flexible foundation to develop, configure, and evaluate monitoring stacks and
 other infrastructure components in a controlled and reproducible way.
+
+## Installations
+
+- [Manual installation](./manual_installation/README.md)
