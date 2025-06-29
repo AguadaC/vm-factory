@@ -6,7 +6,13 @@ you're ready to create and launch your virtual machine.
 
 [[_TOC_]]
 
-## Prepare the VM disk
+##  Using a Backing File (Linked Disk Setup)
+
+In this configuration, the virtual disk references a base image (backing_file).
+This setup saves disk space and speeds up provisioning but introduces a
+dependency on the base image.
+
+### Prepare the VM disk
 
 - Create a new QCOW2 disk based on the cloud image
 
@@ -34,7 +40,7 @@ qemu-img resize </path/to/vm-disk.qcow2> 10G
   > offer very limited disk space by default.
   >
 
-## Launch the VM with virt-install
+### Launch the VM with virt-install
 
 ```bash
 virt-install \
@@ -61,3 +67,31 @@ managed by libvirt.
 
 **--noautoconsole**: Skips opening the VM console automatically (you can connect
 later using virsh console).
+
+## Using an Independent Disk (Full Image Copy)
+
+This method copies the full cloud image into the disk, creating a standalone
+volume with no dependency on a backing file. This is a safer option for
+long-term stability and portability, especially in production environments.
+
+Follow [this documentation](how_to_use_virsh_vol.md)
+
+After creating the new volume, you are ready to create the VM.
+
+```bash
+virt-install \
+  --connect qemu:///system \
+  --virt-type kvm \
+  --name <your-vm-name> \
+  --ram 2048 \
+  --vcpus=1 \
+  --os-variant <your-os-variant> \
+  --disk vol=<pool_name>/<volume_name> \
+  --disk </path/to/cloud-init.iso>,device=cdrom \
+  --import \
+  --network network=default \
+  --noautoconsole
+```
+
+Note the use of the new `--disk vol=...` flag, which allows you to attach a
+volume from a specific storage pool.
