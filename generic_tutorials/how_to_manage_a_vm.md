@@ -49,4 +49,4 @@ rm </path/to/vm-disk.qcow2>
 ```
 
 > </path/to/vm-disk.qcow2> comes from
-[here](how_to_create_a_virtual_machine.md/#prepare-the-vm-disk)
+[here](how_to_create_a_virtual_machine.md)
