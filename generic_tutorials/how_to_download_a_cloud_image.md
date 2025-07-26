@@ -24,7 +24,6 @@ Download the cloud image of your choice from the official distribution source.
 
 - https://cloud-images.ubuntu.com/
 - https://cdimage.debian.org/images/cloud/
-- https://cdimage.debian.org/images/cloud/
 
 Example (Ubuntu 18.04 Bionic):
 
